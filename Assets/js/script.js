@@ -19,7 +19,7 @@ dateEl.textContent = now.format('MMM D,YYYY HH:MM')
 //populates page with a time block for each hour in the array by chacking the array time against the dayjs time
 function populate() {
   j.forEach( j => {
-    //creates a timeblock with the present class
+    //creates a timeblock with the present class by checking against dajs
   if (now.format('HH') == j) {
     html += `<div id="hour-${[j]}" class="row time-block present">
         <div class="col-2 col-md-1 hour text-center py-3">${[j]}00</div>
@@ -30,7 +30,7 @@ function populate() {
       </div>
       `;
   } else if (now.format('HH') < j) {
-    //creates a timeblock with the past class
+    //creates a timeblock with the past class by checking against dajs
     html += `<div id="hour-${[j]}" class="row time-block future">
          <div class="col-2 col-md-1 hour text-center py-3">${[j]}00</div>
         <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
@@ -40,7 +40,7 @@ function populate() {
       </div>
       `;
   } else if (now.format('HH') > j) {
-    //creates a timeblock with the past class
+    //creates a timeblock with the past class by checking against dajs
     html += `<div id="hour-${[j]}" class="row time-block past">
     <div class="col-2 col-md-1 hour text-center py-3">${[j]}00</div>
     <textarea class="col-8 col-md-10 description" rows="3"> </textarea>
@@ -54,56 +54,5 @@ function populate() {
   }
 }); scheduleContainer.innerHTML = html;}
 
-//save to local data
-// saveBtn.addEventListener("click", function(event) {
-//   event.preventDefault();
-
-//   var timeSelector = localstorage("time-7")
-// });
-
-
-
-
 // //starts at page start to populate page with all elements
 populate();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let html = '';
-
-// function populate() {
-//   team.forEach( team => {
-//     html += `<div>
-//     <p>${}</p>
-//     </div>
-//       `;
-//   })}
